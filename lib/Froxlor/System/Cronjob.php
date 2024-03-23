@@ -180,6 +180,13 @@ class Cronjob
 				'type' => TaskId::DELETE_CUSTOMER_FILES,
 				'data' => $data
 			]);
+		} elseif ($type == TaskId::REBUILD_MAIL_CONF) {
+			$data = [];
+			$data = json_encode($data);
+			Database::pexecute($ins_stmt, [
+				'type' => TaskId::REBUILD_MAIL_CONF,
+				'data' => $data
+			]);
 		} elseif ($type == TaskId::DELETE_EMAIL_DATA && count($params) == 2 && $params[0] != '' && $params[1] != '') {
 			$data = [];
 			$data['loginname'] = $params[0];

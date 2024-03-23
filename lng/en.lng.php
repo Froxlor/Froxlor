@@ -1980,6 +1980,10 @@ Yours sincerely, your administrator',
 			'title' => 'Analyse mail traffic',
 			'description' => 'Enable analysing of mailserver logs to calculate the traffic',
 		],
+		'mail_sni_enabled' => [
+			'title' => 'Create SNI entrys for mail services',
+			'description' => 'If in domain settings email and ssl activated, sni entrys for mail services created.',
+		],
 		'mdaserver' => [
 			'title' => 'MDA type',
 			'description' => 'Type of the Mail Delivery Server',
@@ -1988,6 +1992,14 @@ Yours sincerely, your administrator',
 			'title' => 'MDA log',
 			'description' => 'Logfile of the Mail Delivery Server',
 		],
+        'mda_conf_dir' => [
+            'title' => 'MTA configuration dirname',
+            'description' => 'Where should the configuration be stored? Please specify an directory here.',
+        ],
+        'mda_reload_command' => [
+            'title' => 'MDA-daemon reload command',
+            'description' => 'Specify the command to execute in order to reload your systems mda-daemon',
+        ],
 		'mtaserver' => [
 			'title' => 'MTA type',
 			'description' => 'Type of the Mail Transfer Agent',
@@ -1996,6 +2008,14 @@ Yours sincerely, your administrator',
 			'title' => 'MTA log',
 			'description' => 'Logfile of the Mail Transfer Agent',
 		],
+        'mta_conf_dir' => [
+            'title' => 'MTA configuration dirname',
+            'description' => 'Where should the configuration be stored? Please specify an directory here.',
+        ],
+        'mta_reload_command' => [
+            'title' => 'MTA-daemon reload command',
+            'description' => 'Specify the command to execute in order to reload your systems mta-daemon',
+        ],
 		'system_cronconfig' => [
 			'title' => 'Cron configuration file',
 			'description' => 'Path to the cron-service configuration-file. This file will be updated regularly and automatically by froxlor.<br />Note: Please <b>be sure</b> to use the same filename as for the main froxlor cronjob (default: /etc/cron.d/froxlor)!<br><br>If you are using <b>FreeBSD</b>, please specify <i>/etc/crontab</i> here!',

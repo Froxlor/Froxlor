@@ -101,3 +101,16 @@ if (Froxlor::isDatabaseVersion('202312230')) {
 
 	Froxlor::updateToDbVersion('202401090');
 }
+
+if (Froxlor::isDatabaseVersion('202401090')) {
+
+	Update::showUpdateStep("Adding new settings");
+	Settings::AddNew("system.mda_reload_command", "service dovecot reload");
+	Settings::AddNew("system.mda_conf_dir", "/etc/dovecot/conf.d/");
+	Settings::AddNew("system.mta_reload_command", "service postfix reload");
+	Settings::AddNew("system.mta_conf_dir", "/etc/postfix/");
+	Settings::AddNew("system.mail_sni_enabled", "0");
+	Update::lastStepStatus(0);
+
+	Froxlor::updateToDbVersion('202402190');
+}

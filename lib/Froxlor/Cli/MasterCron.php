@@ -96,7 +96,7 @@ final class MasterCron extends CliCommand
 		if ($input->getOption('run-task')) {
 			$tasks_to_run = $input->getOption('run-task');
 			foreach ($tasks_to_run as $ttr) {
-				if (in_array($ttr, [TaskId::REBUILD_VHOST, TaskId::REBUILD_DNS, TaskId::REBUILD_RSPAMD, TaskId::CREATE_QUOTA, TaskId::REBUILD_CRON])) {
+				if (in_array($ttr, [TaskId::REBUILD_VHOST, TaskId::REBUILD_DNS, TaskId::REBUILD_RSPAMD, TaskId::CREATE_QUOTA, TaskId::REBUILD_CRON, TaskId::REBUILD_MAIL_CONF])) {
 					Cronjob::inserttask($ttr);
 					$jobs[] = 'tasks';
 				} else {

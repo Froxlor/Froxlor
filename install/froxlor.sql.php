@@ -613,7 +613,12 @@ opcache.validate_timestamps'),
 	('system', 'mdalog', '/var/log/mail.log'),
 	('system', 'mtalog', '/var/log/mail.log'),
 	('system', 'mdaserver', 'dovecot'),
+	('system', 'mda_conf_dir', '/etc/dovecot/conf.d/'),
+	('system', 'mda_reload_command', 'service dovecot restart'),
 	('system', 'mtaserver', 'postfix'),
+	('system', 'mta_conf_dir', '/etc/postfix/'),
+	('system', 'mta_reload_command', 'service postfix restart'),
+	('system', 'mail_sni_enabled', '0'),
 	('system', 'mailtraffic_enabled', '1'),
 	('system', 'cronconfig', '/etc/cron.d/froxlor'),
 	('system', 'crondreload', 'service cron reload'),
@@ -731,7 +736,7 @@ opcache.validate_timestamps'),
 	('panel', 'settings_mode', '0'),
 	('panel', 'menu_collapsed', '1'),
 	('panel', 'version', '2.2.0-dev1'),
-	('panel', 'db_version', '202401090');
+	('panel', 'db_version', '202402190');
 
 
 DROP TABLE IF EXISTS `panel_tasks`;

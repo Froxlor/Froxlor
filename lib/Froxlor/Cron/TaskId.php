@@ -88,6 +88,11 @@ final class TaskId
 	const DELETE_DOMAIN_SSL = 12;
 
 	/**
+	 * TYPE=13 rebuild mail config
+	 */
+	const REBUILD_MAIL_CONF = 13;
+
+	/**
 	 * TYPE=20 CUSTUMER DATA DUMP
 	 */
 	const CREATE_CUSTOMER_DATADUMP = 20;

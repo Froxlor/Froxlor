@@ -29,6 +29,8 @@ use Exception;
 use Froxlor\Cron\FroxlorCron;
 use Froxlor\Cron\Http\ConfigIO;
 use Froxlor\Cron\Http\HttpConfigBase;
+use Froxlor\Cron\Mail\Dovecot;
+use Froxlor\Cron\Mail\Postfix;
 use Froxlor\Cron\Mail\Rspamd;
 use Froxlor\Cron\TaskId;
 use Froxlor\Database\Database;
@@ -125,6 +127,11 @@ class TasksCron extends FroxlorCron
 				 */
 				FroxlorLogger::getInstanceOf()->logAction(FroxlorLogger::CRON_ACTION, LOG_NOTICE, "Removing Let's Encrypt entries for domain " . $row['data']['domain']);
 				Domain::doLetsEncryptCleanUp($row['data']['domain']);
+			} elseif ($row['type'] == TaskId::REBUILD_MAIL_CONF) {
+				/**
+				 * TYPE=13 MEANS TO CREATE REBUILD MAIL CONF
+				 */
+				self::rebuildMailConfigs();
 			}
 		}
 
@@ -460,5 +467,26 @@ class TasksCron extends FroxlorCron
 	{
 		$antispam = new Rspamd(FroxlorLogger::getInstanceOf());
 		$antispam->writeConfigs();
+	}
+
+	private static function rebuildMailConfigs()
+	{
+		if (Settings::Get("system.mail_sni_enabled")) {
+			$toBeConfigure = [];
+			if (Settings::Get('system.mdaserver') == "dovecot") {
+				$toBeConfigure[] = Dovecot::class;
+			}
+			if (Settings::Get('system.mtaserver') == "postfix") {
+				$toBeConfigure[] = Postfix::class;
+			}
+
+			foreach ($toBeConfigure as $class_name) {
+				$conf = new $class_name();
+				$conf->init();
+				$conf->createVirtualSSLHost();
+				$conf->writeConfigs();
+				$conf->reload();
+			}
+		}
 	}
 }

@@ -1858,6 +1858,10 @@ Vielen Dank, Ihr Administrator',
 			'title' => 'Analysiere Mailtraffic',
 			'description' => 'Aktiviere das Analysieren der Logdateien des Mailsystems, um den verbrauchten Traffic zu berechnen.',
 		],
+		'mail_sni_enabled' => [
+			'title' => 'Erzeuge SNI Einträge für die Mail-Dienste',
+			'description' => 'Wenn Email und SSL für Domains aktiviert, werden SNI Einträge für die Mail-Dienste erzeugt.',
+		],
 		'mdaserver' => [
 			'title' => 'Typ des MDA',
 			'description' => 'Der eingesetzte Mail Delivery Server',
@@ -1866,6 +1870,14 @@ Vielen Dank, Ihr Administrator',
 			'title' => 'Logdatei des MDA',
 			'description' => 'Die Logdatei des Mail Delivery Server',
 		],
+        'mda_conf_dir' => [
+            'title' => 'MDA Konfigurations Verzeichnis',
+            'description' => 'Geben Sie hier den Pfad zur Konfigurationverzeichniss ein. Sollte nur in Ausnahmen angepasst werden müssen.',
+        ],
+        'mda_reload_command' => [
+            'title' => 'MDA-Daemon reload Befehl',
+            'description' => 'Geben Sie hier den Befehl zum Neuladen des MDA-Daemons an',
+        ],
 		'mtaserver' => [
 			'title' => 'Typ des MTA',
 			'description' => 'Der eingesetzte Mail Transfer Agent',
@@ -1874,6 +1886,14 @@ Vielen Dank, Ihr Administrator',
 			'title' => 'Logdatei des MTA',
 			'description' => 'Die Logdatei des Mail Transfer Agent',
 		],
+		'mta_reload_command' => [
+			'title' => 'MTA-Daemon reload Befehl',
+			'description' => 'Geben Sie hier den Befehl zum Neuladen des MTA-Daemons an',
+		],
+        'mta_conf_dir' => [
+            'title' => 'MTA Konfigurations Verzeichnis',
+            'description' => 'Geben Sie hier den Pfad zur Konfigurationverzeichniss ein. Sollte nur in Ausnahmen angepasst werden müssen.',
+        ],
 		'system_cronconfig' => [
 			'title' => 'Cron-Konfigurationsdatei',
 			'description' => 'Pfad zur Konfigurationsdatei des Cron-Dienstes. Diese Datei wird von Froxlor automatisch aktualisiert.<br />Hinweis: Bitte verwenden Sie <strong>exakt</strong> die gleiche Datei wie für den Froxlor-Haupt-Cronjob (Standard: /etc/cron.d/froxlor)!<br><br>Wird <b>FreeBSD</b> verwendet, sollte hier <i>/etc/crontab</i> angegeben werden!',

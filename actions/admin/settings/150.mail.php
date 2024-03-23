@@ -115,6 +115,14 @@ return [
 					'save_method' => 'storeSettingField',
 					'advanced_mode' => true
 				],
+				'system_mail_sni_enabled' => [
+					'label' => lng('serversettings.mail_sni_enabled'),
+					'settinggroup' => 'system',
+					'varname' => 'mail_sni_enabled',
+					'type' => 'checkbox',
+					'default' => false,
+					'save_method' => 'storeSettingField',
+				],
 				'system_mdaserver' => [
 					'label' => lng('serversettings.mdaserver'),
 					'settinggroup' => 'system',
@@ -139,6 +147,25 @@ return [
 					'save_method' => 'storeSettingField',
 					'advanced_mode' => true
 				],
+                'system_mda_conf_dir' => [
+                    'label' => lng('serversettings.mda_conf_dir'),
+                    'settinggroup' => 'system',
+                    'varname' => 'mda_conf_dir',
+                    'type' => 'text',
+                    'string_type' => 'confdir',
+                    'default' => '/etc/dovecot/conf.d/',
+                    'save_method' => 'storeSettingField'
+                ],
+                'system_mda_reload_command' => [
+                    'label' => lng('serversettings.mda_reload_command'),
+                    'settinggroup' => 'system',
+                    'varname' => 'mda_reload_command',
+                    'type' => 'text',
+                    'string_regexp' => '/^[a-z0-9\/\._\- ]+$/i',
+                    'default' => 'service dovecot restart',
+                    'save_method' => 'storeSettingField',
+                    'required_otp' => true
+                ],
 				'system_mtaserver' => [
 					'label' => lng('serversettings.mtaserver'),
 					'settinggroup' => 'system',
@@ -162,7 +189,26 @@ return [
 					'string_emptyallowed' => true,
 					'save_method' => 'storeSettingField',
 					'advanced_mode' => true
-				]
+				],
+                'system_mta_conf_dir' => [
+                    'label' => lng('serversettings.mta_conf_dir'),
+                    'settinggroup' => 'system',
+                    'varname' => 'mta_conf_dir',
+                    'type' => 'text',
+                    'string_type' => 'confdir',
+                    'default' => '/etc/postfix/',
+                    'save_method' => 'storeSettingField'
+                ],
+                'system_mta_reload_command' => [
+                    'label' => lng('serversettings.mta_reload_command'),
+                    'settinggroup' => 'system',
+                    'varname' => 'mta_reload_command',
+                    'type' => 'text',
+                    'string_regexp' => '/^[a-z0-9\/\._\- ]+$/i',
+                    'default' => 'service postfix restart',
+                    'save_method' => 'storeSettingField',
+                    'required_otp' => true
+                ],
 			]
 		]
 	]
